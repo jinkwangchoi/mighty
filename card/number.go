@@ -16,4 +16,5 @@ const (
 	Queen
 	King
 	Ace
+	Joker
 )
