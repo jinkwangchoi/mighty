@@ -7,4 +7,5 @@ const (
 	Diamonds
 	Hearts
 	Spades
+	Jokers
 )
