@@ -1,4 +1,4 @@
-package card
+package mighty
 
 import "testing"
 import "github.com/stretchr/testify/assert"

@@ -1,4 +1,4 @@
-package card
+package mighty
 
 type Suit uint8
 
