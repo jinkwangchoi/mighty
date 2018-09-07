@@ -1,4 +1,4 @@
-package card
+package mighty
 
 type Suit uint8
 
@@ -9,3 +9,5 @@ const (
 	Spades
 	Jokers
 )
+
+var Suits = []Suit{Clubs, Diamonds, Hearts, Spades, Jokers}

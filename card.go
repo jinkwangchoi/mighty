@@ -1,4 +1,4 @@
-package card
+package mighty
 
 type Card struct {
 	Suit   Suit
