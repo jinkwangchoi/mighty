@@ -4,15 +4,15 @@ import (
 	"fmt"
 )
 
-type Bundle struct {
+type Deck struct {
 	Cards []*Card
 }
 
-func (b Bundle) Count() int {
+func (b Deck) Count() int {
 	return len(b.Cards)
 }
 
-func (b *Bundle) Pop() (Card, error) {
+func (b *Deck) Pop() (Card, error) {
 	if b.Count() == 0 {
 		return Card{}, fmt.Errorf("bundle empty")
 	}
@@ -21,7 +21,7 @@ func (b *Bundle) Pop() (Card, error) {
 	return pop, nil
 }
 
-func NewBundle(r func(min, max int) int) *Bundle {
+func NewDeck(r func(min, max int) int) *Deck {
 	var cards []*Card
 	for _, suit := range Suits {
 		for _, number := range Numbers {
@@ -46,5 +46,5 @@ func NewBundle(r func(min, max int) int) *Bundle {
 		shuffledCards[i] = cards[randomIndex]
 		cards = append(cards[:i], cards[i:]...)
 	}
-	return &Bundle{Cards: shuffledCards}
+	return &Deck{Cards: shuffledCards}
 }
