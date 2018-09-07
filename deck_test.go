@@ -5,29 +5,29 @@ import (
 	"testing"
 )
 
-func TestBundle(t *testing.T) {
-	b := NewBundle(func(min, max int) int {
+func TestDeck(t *testing.T) {
+	d := NewDeck(func(min, max int) int {
 		return min
 	})
 	a := assert.New(t)
-	a.Equal(b.Count(), 53)
+	a.Equal(d.Count(), 53)
 
-	popCard, err := b.Pop()
+	popCard, err := d.Pop()
 	a.Equal(err, nil)
 	a.Equal(popCard, *NewCard(Clubs, Two))
-	a.Equal(b.Count(), 52)
+	a.Equal(d.Count(), 52)
 
 	for i := 0; i < 52; i++ {
-		_, err := b.Pop()
+		_, err := d.Pop()
 		a.Equal(err, nil)
 	}
 
-	_, err = b.Pop()
+	_, err = d.Pop()
 	a.NotEqual(err, nil)
 }
 
-func TestShuffledBundle(t *testing.T) {
-	b := NewBundle(func(min, max int) int {
+func TestShuffledDeck(t *testing.T) {
+	d := NewDeck(func(min, max int) int {
 		if min == max {
 			return min
 		}
@@ -35,7 +35,7 @@ func TestShuffledBundle(t *testing.T) {
 	})
 
 	a := assert.New(t)
-	popCard, err := b.Pop()
+	popCard, err := d.Pop()
 	a.Equal(err, nil)
 	a.Equal(popCard, *NewCard(Clubs, Three))
 }
