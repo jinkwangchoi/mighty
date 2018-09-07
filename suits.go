@@ -9,3 +9,5 @@ const (
 	Spades
 	Jokers
 )
+
+var Suits = []Suit{Clubs, Diamonds, Hearts, Spades, Jokers}
